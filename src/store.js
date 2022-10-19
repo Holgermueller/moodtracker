@@ -2,33 +2,31 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state: {
-    mostRecentWeather: [],
+    imageData: {},
   },
 
   mutations: {
-    SET_WEATHER(state, payload) {
-      state.mostRecentWeather = payload;
+    SET_IMAGE(state, payload) {
+      state.imageData = payload;
     },
   },
 
   actions: {
-    async getWeather() {
+    async getImage({ commit }) {
       const API_KEY = process.env.VUE_APP_MARS_WEATHER_KEY;
-      const response = await fetch(
-        "https://api.nasa.gov/insight_weather/?api_key=" +
-          API_KEY +
-          "&feedtype=json&ver=1.0"
-      );
 
-      // const myJson = await response.json();
-
-      console.log(response);
+      await fetch("https://api.nasa.gov/planetary/apod?api_key=" + API_KEY)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          commit("SET_IMAGE", data);
+        });
     },
   },
 
   getters: {
-    mostRecentWeather(state) {
-      return state.mostRecentWeather;
+    imageData(state) {
+      return state.imageData;
     },
   },
 });

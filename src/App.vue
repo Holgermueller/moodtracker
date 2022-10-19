@@ -1,5 +1,8 @@
 <template>
-  <h1>Data will appear here:</h1>
+  <main>
+    <img :src="imageData.url" alt="Today's picture" />
+    {{ imageData.copyright }}
+  </main>
 </template>
 
 <script>
@@ -8,9 +11,14 @@ export default {
   components: {},
 
   created() {
-    this.$store
-      .dispatch("getWeather")
-      .then(() => console.log("weather fetched"));
+    this.$store.dispatch("getImage").then(() => console.log("weather fetched"));
+  },
+
+  computed: {
+    imageData() {
+      console.log("gt data");
+      return this.$store.getters.imageData;
+    },
   },
 };
 </script>
