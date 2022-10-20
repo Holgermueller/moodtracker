@@ -13,7 +13,7 @@ const store = createStore({
   },
 
   actions: {
-    async flameOn({ commit }) {
+    async flameOn({ commit }, payload) {
       const API_KEY = process.env.VUE_APP_MARVEL_KEY;
       const PRIVATE_KEY = process.env.VUE_APP_PRIVATE_KEY;
       const ts = Date.now();
@@ -22,20 +22,35 @@ const store = createStore({
         .update(ts + PRIVATE_KEY + API_KEY)
         .digest("hex");
 
-      console.log(hash);
+      const name = payload.name;
 
       await fetch(
-        "http://gateway.marvel.com/v1/public/comics?ts=" +
+        "http://gateway.marvel.com/v1/public/characters?name=" +
+          name +
+          "&ts=" +
           ts +
-          "&api_key=" +
+          "&apikey=" +
           API_KEY +
           "&hash=" +
           hash
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          commit("SET_DATA", data);
+          console.log(data.data.results[0]);
+          let characterData = {
+            name: data.data.results[0].name,
+            image:
+              data.data.results[0].thumbnail.path +
+              "." +
+              data.data.results[0].thumbnail.extension,
+            detail: data.data.results[0].urls[0].url,
+            comicLink: data.data.results[0].urls[1].url,
+            description: data.data.results[0].description,
+          };
+          commit("SET_DATA", characterData);
+        })
+        .catch((err) => {
+          console.log("Error is: " + err);
         });
     },
   },

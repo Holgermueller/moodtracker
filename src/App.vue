@@ -1,21 +1,53 @@
 <template>
   <main>
-    <h1>Today's Image</h1>
+    <form action="">
+      <input type="text" v-model="name" name="" id="" />
+      <button @click.prevent="getCharacter" type="submit">Submit</button>
+    </form>
+
+    {{ characterData.name }}
+
+    <img :src="characterData.image" alt="" />
+
+    <div>
+      {{ characterData.description }}
+    </div>
+
+    <a :href="characterData.detail" target="_blank">Link1</a>
+    <br />
+    <a :href="characterData.comicLink" target="_blank">Link2</a>
+
+    <Footer />
   </main>
 </template>
 
 <script>
+import Footer from "./components/Footer.vue";
+
 export default {
   name: "App",
-  components: {},
 
-  created() {
-    this.$store.dispatch("flameOn").then(() => {
-      console.log("Avengers assemble!");
-    });
+  components: {
+    Footer,
   },
 
-  computed: {},
+  data: () => ({
+    name: "",
+  }),
+
+  computed: {
+    characterData() {
+      return this.$store.getters.data;
+    },
+  },
+
+  methods: {
+    getCharacter() {
+      this.$store.dispatch("flameOn", {
+        name: this.name,
+      });
+    },
+  },
 };
 </script>
 
