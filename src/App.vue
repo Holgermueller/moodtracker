@@ -1,12 +1,6 @@
 <template>
-  <main
-    :style="{
-      background: 'url(' + imageData.photos[0].img_src + ') ',
-    }"
-  >
+  <main>
     <h1>Today's Image</h1>
-
-    <h2>Courtesy of: {{ imageData.photos[0].rover.name }}</h2>
   </main>
 </template>
 
@@ -16,15 +10,12 @@ export default {
   components: {},
 
   created() {
-    this.$store.dispatch("getImage").then(() => console.log("image fetched"));
+    this.$store.dispatch("flameOn").then(() => {
+      console.log("Avengers assemble!");
+    });
   },
 
-  computed: {
-    imageData() {
-      console.log("gt data");
-      return this.$store.getters.imageData;
-    },
-  },
+  computed: {},
 };
 </script>
 
