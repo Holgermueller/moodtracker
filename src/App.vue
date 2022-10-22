@@ -1,9 +1,6 @@
 <template>
   <main>
-    <form action="">
-      <input type="text" v-model="name" name="" id="" />
-      <button @click.prevent="getCharacter" type="submit">Submit</button>
-    </form>
+    <SubmitForm />
 
     {{ characterData.name }}
 
@@ -22,30 +19,20 @@
 </template>
 
 <script>
+import SubmitForm from "./components/SubmitForm.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
 
   components: {
+    SubmitForm,
     Footer,
   },
-
-  data: () => ({
-    name: "",
-  }),
 
   computed: {
     characterData() {
       return this.$store.getters.data;
-    },
-  },
-
-  methods: {
-    getCharacter() {
-      this.$store.dispatch("flameOn", {
-        name: this.name,
-      });
     },
   },
 };
