@@ -1,6 +1,6 @@
 <template>
   <main>
-    <SubmitForm />
+    <Header />
 
     {{ characterData.name }}
 
@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import SubmitForm from "./components/SubmitForm.vue";
+import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
 
   components: {
-    SubmitForm,
+    Header,
     Footer,
   },
 
