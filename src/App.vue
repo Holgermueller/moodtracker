@@ -2,13 +2,11 @@
   <main>
     <Header />
 
-    {{ characterData.name }}
+    <CharacterNameDisplay :characterName="characterData.name" />
 
     <img :src="characterData.image" alt="" />
 
-    <div>
-      {{ characterData.description }}
-    </div>
+    <Description :description="characterData.description" />
 
     <a :href="characterData.detail" target="_blank">Link1</a>
     <br />
@@ -20,6 +18,8 @@
 
 <script>
 import Header from "./components/Header.vue";
+import CharacterNameDisplay from "./components/CharacterNameDisplay.vue";
+import Description from "./components/Description.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
@@ -27,6 +27,8 @@ export default {
 
   components: {
     Header,
+    CharacterNameDisplay,
+    Description,
     Footer,
   },
 
@@ -50,21 +52,5 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-main {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  height: 100vh;
-}
-h1,
-h2 {
-  margin: 0 auto;
-  padding: 8px;
-  background-color: hsla(0, 83%, 50%);
-  color: #080808;
-  width: max-content;
 }
 </style>
