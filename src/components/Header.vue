@@ -1,22 +1,12 @@
 <template>
   <div>
-    <div class="container">
-      <div class="logo-container">
-        <div class="logo">M</div>
-        <div class="overlay">Comics</div>
-      </div>
-
-      <SubmitForm class="grid-item-two" />
-    </div>
+    <h1>Holger Mueller</h1>
   </div>
 </template>
 
 <script>
-import SubmitForm from "./SubmitForm.vue";
 export default {
   name: "Header",
-
-  components: { SubmitForm },
 };
 </script>
 
