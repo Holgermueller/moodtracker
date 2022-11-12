@@ -18,5 +18,12 @@ nav {
   justify-content: space-between;
   column-gap: 0.5rem;
   flex-wrap: wrap;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+a {
+  text-decoration: none;
+  padding: 4px;
+  color: black;
 }
 </style>
