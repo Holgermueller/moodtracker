@@ -2,6 +2,7 @@
   <main>
     <Header />
     <StickyHeader />
+    <router-view />
     <Footer />
   </main>
 </template>
