@@ -1,7 +1,6 @@
 <template>
   <main>
     <Header />
-    <StickyHeader />
     <router-view />
     <Footer />
   </main>
@@ -9,7 +8,6 @@
 
 <script>
 import Header from "./components/Header.vue";
-import StickyHeader from "./components/StickyHeader.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
@@ -17,7 +15,6 @@ export default {
 
   components: {
     Header,
-    StickyHeader,
     Footer,
   },
 

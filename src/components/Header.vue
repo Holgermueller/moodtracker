@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Holger Mueller</h1>
+    <h1>Mood Tracker</h1>
   </div>
 </template>
 
