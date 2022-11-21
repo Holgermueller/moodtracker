@@ -1,5 +1,18 @@
 <template>
   <div>
-    <h1>Log Reg</h1>
+    <Login />
+    <Signup />
   </div>
 </template>
+
+<script>
+import Login from "../components/Login.vue";
+import Signup from "../components/Signup.vue";
+
+export default {
+  components: {
+    Login,
+    Signup,
+  },
+};
+</script>
