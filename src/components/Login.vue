@@ -2,9 +2,14 @@
   <div id="SignIn">
     <h2>Log In:</h2>
     <form action="">
-      <input type="email" name="email" id="email" />
-      <input type="password" name="password" id="password" />
-      <button type="button">Log In</button>
+      <input type="email" name="email" id="loginEmail" placeholder="Email" />
+      <input
+        type="password"
+        name="password"
+        id="loginPassword"
+        placeholder="Password"
+      />
+      <button type="button" @click="loginUser">Log In</button>
     </form>
   </div>
 </template>
@@ -15,8 +20,24 @@ export default {
 
   data: () => ({}),
 
-  methods: {},
+  methods: {
+    loginUser() {
+      console.log("click");
+    },
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+input,
+button {
+  padding: 8px;
+  margin: 8px auto;
+  font-size: large;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+input {
+  width: 100%;
+}
+</style>

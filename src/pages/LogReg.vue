@@ -5,8 +5,10 @@
       ><button @click="hideLogIn">Sign Up</button>
     </div>
 
-    <Login id="logInForm" class="log-in-form" />
-    <Signup id="signUpForm" class="sign-up-form" />
+    <div class="forms-holder">
+      <Login id="logInForm" class="log-in-form" />
+      <Signup id="signUpForm" class="sign-up-form" />
+    </div>
   </div>
 </template>
 
@@ -53,6 +55,11 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.forms-holder {
+  width: 45%;
+  margin: auto;
 }
 
 .sign-up-form {
